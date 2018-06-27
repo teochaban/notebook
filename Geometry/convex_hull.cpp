@@ -6,7 +6,10 @@ typedef double coord2_t;  // must be big enough to hold 2*max(|coordinate|)^2
 
 struct Point {
 	coord_t x, y;
-
+	Point(){}
+	Point(coord_t xx, coord_t yy){
+		x=xx, y=yy;
+	}
 	bool operator <(const Point &p) const {
 		return x < p.x || (x == p.x && y < p.y);
 	}
