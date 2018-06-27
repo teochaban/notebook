@@ -50,16 +50,6 @@ vector<Point> convex_hull(vector<Point> P)
 	return H;
 }
 
-double area(vector<Point>v){	// Return the area of the convex hull.
-	double ret=0.0;
-	int n=v.size();
-	for(int i=0; i<v.size(); i++){
-		ret+=v[i].x*(v[(i+1+n)%n].y-v[(i-1+n)%n].y);
-	}
-	return abs(ret/2);
-}
-
-
 /*
  *  Note that this is using double. Its better to use long long because double might be TLE!
 */
