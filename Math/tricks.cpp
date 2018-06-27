@@ -35,7 +35,7 @@ ll lcm(ll a, ll b){	// Least common multiple
 
 int p[N];
 
-void start_fast(int MAX){	// Needs to be called to use fast_fact or ammount_of_divisors.
+void start_fast(int MAX){	// Runs O(nlog(n)) Needs to be called to use fast_fact or ammount_of_divisors.
 	for(int i=2; i<=MAX; i++){
 		if(p[i]==0){
 			for(int j=i; j<=MAX; j+=i){
@@ -45,7 +45,7 @@ void start_fast(int MAX){	// Needs to be called to use fast_fact or ammount_of_d
 	}
 }
 
-vector<int>fast_fact(int x){	// Fast factorization
+vector<int>fast_fact(int x){	// Fast factorization in O(log2(x))
 	vector<int>ret;
 	while(x>1){
 		ret.pb(p[x]);
@@ -54,7 +54,7 @@ vector<int>fast_fact(int x){	// Fast factorization
 	return ret;
 }
 
-int amount_of_divisors(int x){	// Calculate the ammount of divisors of a number
+int amount_of_divisors(int x){	// Calculate the ammount of divisors of a number in O(log2(x))
 	if(x==1)return 1;
 	vector<int>v=fast_fact(x);
 	int ret=1, curr=2;
