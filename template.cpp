@@ -4,7 +4,6 @@ using namespace std;
 
 #define ll long long int
 #define inf 0x3f3f3f3f
-#define PI 3.141592653589793238462643383279502884197169399375105820974944592307816406286
 #define pb push_back
 #define mk make_pair
 #define fi first
@@ -12,6 +11,8 @@ using namespace std;
 #define ii pair<int, int>
 #define all(x) (x).begin(), (x).end()
 #define N 1000007 // 10e6 + 7
+
+const double PI = acos(-1.0);
 
 
 int main(int argc, char const *argv[]){
