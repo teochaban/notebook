@@ -9,7 +9,7 @@ struct edge {
 	int a, b, cap, flow;
 };
  
-int n, s, t, d[N], ptr[N], q[N];			// NEED TO set n (max of nodes), s source, t sink
+int nodes, s, t, d[N], ptr[N], q[N];			// NEED TO set n (max of nodes), s source, t sink
 vector<edge> e;
 vector<int> g[N];
  
@@ -25,7 +25,7 @@ void add_edge (int a, int b, int cap) {
 bool bfs() {
 	int qh=0, qt=0;
 	q[qt++] = s;
-	memset (d, -1, n * sizeof d[0]);
+	memset (d, -1, nodes * sizeof d[0]);
 	d[s] = 0;
 	while (qh < qt && d[t] == -1) {
 		int v = q[qh++];
@@ -62,7 +62,7 @@ int dinic() {
 	int flow = 0;
 	for (;;) {
 		if (!bfs())  break;
-		memset (ptr, 0, n * sizeof ptr[0]);
+		memset (ptr, 0, nodes * sizeof ptr[0]);
 		while (int pushed = dfs (s, inf))
 			flow += pushed;
 	}
