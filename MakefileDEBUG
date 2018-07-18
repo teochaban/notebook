@@ -1,5 +1,5 @@
-all: 
-  g++ -std=c++0x $(f).cpp -o $(f) -O2
+#all: 
+ # g++ -std=c++0x $(f).cpp -o $(f) -O2
 
 
 
@@ -20,3 +20,6 @@ all:
 # struct timespec ts;
 # clock_gettime(CLOCK_MONOTONIC, &ts);
 # srand((time_t)ts.tv_nsec);	// using nano-seconds instead of seconds 
+
+
+# random_shuffle(all(v)) // Dont forget to srand()!!
