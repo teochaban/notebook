@@ -1,7 +1,7 @@
 /**
 	e-maxx's flow
 	Dinic algorithm
-	Complexity O(V^2*E)
+	Complexity O(V^2*E) OR O(Vsrqt(E)) for bipartite graphs! 
 
 */
 
