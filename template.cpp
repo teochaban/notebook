@@ -6,6 +6,7 @@ using namespace std;
 #define inf 0x3f3f3f3f
 #define pb push_back
 #define mk make_pair
+#define mt make_tuple
 #define fi first
 #define se second
 #define ii pair<int, int>
