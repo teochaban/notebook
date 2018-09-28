@@ -1,25 +1,25 @@
-ll fexp(ll a, int x, ll mod=M){		// Fast exponenciation returns a^x % mod
+ll fexp(ll a, int x, ll mod){		// Fast exponenciation returns a^x % mod
 	if(x==0)return 1ll;
 	if(x%2==0){
-		ll y=fexp(a, x/2);
+		ll y=fexp(a, x/2, mod);
 		return (y*y)%mod;
 	}
-	return (a*fexp(a, x-1))%mod;
+	return (a*fexp(a, x-1, mod))%mod;
 }
 
-ll divv(ll a, ll b, ll mod=M){	// Division with mod returns a/b % mod
+ll divv(ll a, ll b, ll mod){	// Division with mod returns a/b % mod
 	return (a*fexp(b, mod-2, mod))%mod;
 }
 
 ll f[N];
 
-ll fat(ll a, ll mod=M){		// Calculates factorial and stores in f % mod
+ll fat(ll a, ll mod){		// Calculates factorial and stores in f % mod
 	if(a<=1)return 1;
 	return f[a]?f[a]:(f[a]=(a*fat(a-1, mod))%mod);
 }
 
-ll choose(ll n, ll k, ll mod=M){	// Returns n choose k % mod
-	return divv(fat(n), (fat(k)*fat(n-k))%mod);
+ll choose(ll n, ll k, ll mod){	// Returns n choose k % mod
+	return divv(fat(n, mod), (fat(k, mod)*fat(n-k, mod))%mod, mod)%mod;
 }
 
 ll gcd(ll a, ll b){	// Greatest common divisor
