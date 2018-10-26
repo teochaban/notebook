@@ -18,15 +18,13 @@ struct Point {
 // 2D cross product of OA and OB vectors, i.e. z-component of their 3D cross product.
 // Returns a positive value, if OAB makes a counter-clockwise turn,
 // negative for clockwise turn, and zero if the points are collinear.
-coord2_t cross(const Point &O, const Point &A, const Point &B)
-{
+coord2_t cross(const Point &O, const Point &A, const Point &B){
 	return (A.x - O.x) * (B.y - O.y) - (A.y - O.y) * (B.x - O.x);
 }
 
 // Returns a list of points on the convex hull in counter-clockwise order.
 // Note: the last point in the returned list is the same as the first one.
-vector<Point> convex_hull(vector<Point> P)
-{
+vector<Point> convex_hull(vector<Point> P){
 	size_t n = P.size(), k = 0;
 	if (n <= 3) return P;
 	vector<Point> H(2*n);
