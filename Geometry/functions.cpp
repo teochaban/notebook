@@ -1,4 +1,4 @@
-double area(vector<Point>v){	// Return the area of the convex hull.
+double area(vector<Point>v){	// Return the area of the convex hull in O(n).
 	double ret=0.0;
 	int n=v.size();
 	for(int i=0; i<v.size(); i++){
@@ -7,7 +7,7 @@ double area(vector<Point>v){	// Return the area of the convex hull.
 	return abs(ret/2);
 }
 
-double perimeter(vector<Point> v){	// Return the perimeter of the convex hull.
+double perimeter(vector<Point> v){	// Return the perimeter of the convex hull in O(n).
 	double ans=0.0;
 	v.pb(v[0]);
 	for(int i=0; i<v.size()-1; i++){
