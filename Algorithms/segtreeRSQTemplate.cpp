@@ -6,6 +6,8 @@ using namespace std;
 
 int n;
 
+// Range query, range update w/ lazy
+
 ll lo[4 * MAXN + 1], hi[4 * MAXN + 1], tree[4 * MAXN + 1], delta[4 * MAXN + 1];
 
 void init(int i, int l, int r){

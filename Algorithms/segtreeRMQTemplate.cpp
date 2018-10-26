@@ -4,7 +4,7 @@ typedef long long ll;
 
 using namespace std;
 
-int n;
+int n; // Range query, range update w/ lazy
 
 int lo[4 * MAXN + 1], hi[4 * MAXN + 1], tree[4 * MAXN + 1], delta[4 * MAXN + 1];
 
