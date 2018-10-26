@@ -54,7 +54,7 @@ vector<int>fast_fact(int x){	// Fast factorization in O(log2(x))
 	return ret;
 }
 
-int amount_of_divisors(int x){	// Calculate the ammount of divisors of a number in O(log2(x))
+int amount_of_divisors(int x){	// Calculate the ammount of divisors of a number in O(log2(x)) assume already ran start_fast.
 	if(x==1)return 1;
 	vector<int>v=fast_fact(x);
 	int ret=1, curr=2;
