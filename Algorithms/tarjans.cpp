@@ -1,83 +1,39 @@
-#include <bits/stdc++.h>
-#define MAXN 300100
-typedef long long ll;
+typedef pair<int, int> ii;
 
-using namespace std;
+int N,M;
+vector<int> adjList[MX_N];
+int dfs_num[MX_N],dfs_low[MX_N];
+bool vis[MX_N];
+stack<int> scc;
+int dfsCounter=1;
+int sccIdx=1;
 
-int n, m, cost[MAXN], idx[MAXN], lowlink[MAXN], index = 0;
-bool onStack[MAXN];
-vector<int> g[MAXN];
-vector<vector<int> > components;
+map<int, int> sccMap;
+// Eoin's implementation of Tarjan
 
-stack<int> s;
+void tarjans(int u){
+    scc.push(u);
+    vis[u]=true;
 
-void tarjans(int x){
-     lowlink[x] = idx[x] = index++;
-     s.push(x);
-     onStack[x] = true;
-     for(int i = 0; i < g[x].size(); i++){
-        int w = g[x][i];
-        if(idx[w] == -1){
-            tarjans(w);
-            lowlink[x] = min(lowlink[x], lowlink[w]);            
-        } else if(onStack[w]){  //backedge
-            lowlink[x] = min(lowlink[x], idx[w]);
+    dfs_low[u]=dfs_num[u]=dfsCounter++;
+
+    for(int i = 0; i < adjList[u].size(); i++){
+        int v = adjList[u][i];
+        if(dfs_num[v]==0){
+            tarjans(v);
+            dfs_low[u]=min(dfs_low[u],dfs_low[v]);
+        } else if(vis[v]){
+            dfs_low[u]=min(dfs_low[u],dfs_num[v]);
         }
-     }
-     if(lowlink[x] == idx[x]){
-    //cout << x;
-        vector<int> v;
-        int w = s.top();
-        while(true){
-            s.pop();
-            onStack[w] = false;
-            v.push_back(w);
-            if(w == x) break;
-            w = s.top();
+    }
+    if(dfs_low[u]==dfs_num[u]){
+        while(1){
+            int v = scc.top(); scc.pop();
+            sccMap[v]=sccIdx;
+            vis[v]=false;
+            if(v==u)
+                break;
         }
-        components.push_back(v);
-     }
-}
-
-int main(){
-    #ifndef ONLINE_JUDGE
-		freopen("input.txt", "r", stdin);
-	#endif
-	ios_base::sync_with_stdio(false);
-    cin >> n;
-    for(int i = 0; i < n; i++){
-    	cin >> cost[i];
+        sccIdx++;
     }
-    cin >> m;
-    for(int i = 0; i < m; i++){
-    	int a, b;
-    	cin >> a >> b;
-    	g[a - 1].push_back(b - 1);
-    }
-    for(int i = 0; i < n; i++){
-        idx[i] = -1;
-        onStack[i] = false;
-    }
-    for(int i = 0; i < n; i++){
-        if(idx[i] == -1) tarjans(i);
-    }
-    ll ans1 = 0, ans2 = 1;
-    for(int i = 0; i < components.size(); i++){
-        vector<int> v = components[i];
-        ll mi = 9999999999, num = 0;
-        for(int j = 0; j < v.size(); j++){
-            //cout << v[j];
-            if(cost[v[j]] < mi){
-                mi = cost[v[j]];
-                num = 1;
-            } else if(cost[v[j]] == mi){
-                num++;
-            }
-        }
-        //cout << "\n";
-        ans1 += mi;
-        ans2 *= num;
-        ans2 %= 1000000007;
-    }
-    cout << ans1 << ' ' << ans2;
 }
