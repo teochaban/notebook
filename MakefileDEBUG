@@ -31,3 +31,4 @@ clock_t start = clock(); // get starting clock ticks
 while((clock() - start) < delay){}
 
 random_shuffle(all(v)) // Dont forget to srand()!!
+shuffle(v.begin(), v.end(), rrand) // this is better than random_shuffle!!!!!
