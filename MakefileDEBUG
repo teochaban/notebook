@@ -15,11 +15,16 @@ all:
 	make all
 
 
+mt19937 rrand((time_t)ts.tv_nsec); // NEW RAND THAT GOES TO 4*10^9, this is quicker than rand()
+rrand() % WHATEVER // to get the value
+
 srand(time(NULL)) // but this is in seconds
+mt19937 rrand(time(NULL));
 
 struct timespec ts;
 clock_gettime(CLOCK_MONOTONIC, &ts);
 srand((time_t)ts.tv_nsec);	// using nano-seconds instead of seconds 
+mt19937 rrand((time_t)ts.tv_nsec);
 
 clock_t delay = SECONDS * CLOCKS_PER_SEC; // convert seconds to clock ticks
 clock_t start = clock(); // get starting clock ticks
