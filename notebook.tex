@@ -1,0 +1,127 @@
+\documentclass[twocolumn, landscape]{report}
+\usepackage{verbatim}
+\usepackage{listings}
+\lstset
+{
+    numbers=left,
+    basicstyle=\footnotesize,
+    breaklines=true,
+}
+\usepackage[a4paper,margin=0.5in]{geometry}
+\setcounter{tocdepth}{4}
+\setcounter{secnumdepth}{0}
+\begin{document}
+    \title{ACM ICPC Code Notebook}
+    \author{UofT Blue 2018}
+    \maketitle
+    \tableofcontents
+    \chapter*{Templates}
+        \addcontentsline{toc}{chapter}{Templates}
+        \section{C++}
+        \lstinputlisting[language=c++]{template.cpp}
+        \newpage
+        \section{Java}
+        \lstinputlisting[language=java]{templateJava.java}
+
+    \chapter*{Algorithms}
+        \addcontentsline{toc}{chapter}{Algorithms}
+        \section{Graphs}
+            \subsection{AP \& Bridges}
+            \lstinputlisting[language=c++]{Algorithms/AP_Bridges.cpp}
+            \subsection{Centroid Decomposition}
+                \subsubsection{Centroid Decomposition}
+                \lstinputlisting[language=c++]{Algorithms/centroiddecomposition.cpp}
+                \subsubsection{Centroid Decomposition (Eoin)}
+                \lstinputlisting[language=c++]{Algorithms/Centroid_Decomp.cpp}
+            \subsection{Network Flow}
+                \subsubsection{Dinic's Blocking flow}
+                \lstinputlisting[language=c++]{Algorithms/flow.cpp}
+                \subsubsection{Edmond Karp}
+                \lstinputlisting[language=c++]{Algorithms/Edmond_Karp.cpp}
+                \subsubsection{Ford Fulkerson 1}
+                \lstinputlisting[language=c++]{Algorithms/Ford_Fulkerson.cpp}
+                \subsubsection{Ford Fulkerson 2}
+                \lstinputlisting[language=c++]{Algorithms/flow_Ford_Fulkerson.cpp}
+            \subsection{Lowest Common Ancestor}
+                \subsubsection{Lowest Common Ancestor (Using RMQ)}
+                \lstinputlisting[language=c++]{Algorithms/LCA.cpp}
+                \subsubsection{Lowest Common Ancestor (Using Binary Lifting)}
+                \lstinputlisting[language=c++]{Algorithms/binarylifting_lca.cpp}
+            \subsection{Minimum Spanning Tree (Kruskal's)}
+            \lstinputlisting[language=c++]{Algorithms/MST.cpp}
+            \subsection{Strongly Connected Components (Tarjan's)}
+            \lstinputlisting[language=c++]{Algorithms/SCC_Tarjans.cpp}
+            \subsection{Bipartite Check}
+            \lstinputlisting[language=c++]{Algorithms/checkbipartite.cpp}
+            \subsection{Dijkstras}
+            \lstinputlisting[language=c++]{Algorithms/dijkstras.cpp}
+            \subsection{Find Cycles}
+            \lstinputlisting[language=c++]{Algorithms/findcicles.cpp}
+
+        \section{Arrays}
+            \subsection{Longest Increasing Subsequence}
+            \lstinputlisting[language=c++]{Algorithms/LIS.cpp}
+
+    \chapter*{Data Structures}
+        \addcontentsline{toc}{chapter}{Data Structures}
+        \section{Fenwick Tree}
+        \lstinputlisting[language=c++]{Algorithms/Fenwick.cpp}
+        \section{Segment Trees}
+            \subsection{Segment Tree Lazy}
+            \lstinputlisting[language=c++]{Algorithms/segtreelazy.cpp}
+            \subsection{Segment Tree (Eoin)}
+            \lstinputlisting[language=c++]{Algorithms/Segment_Tree.cpp}
+            \subsection{Iterative Segment Tree}
+            \lstinputlisting[language=c++]{Algorithms/segtreeIteractive.cpp}
+        \section{Sparse Table}
+        \lstinputlisting[language=c++]{Algorithms/Sparse_Table.cpp}
+        \section{Union Find}
+        \lstinputlisting[language=c++]{Algorithms/union_find.cpp}
+
+    \chapter*{Strings}
+        \addcontentsline{toc}{chapter}{Strings}
+        \section{KMP}
+            \subsection{KMP}
+            \lstinputlisting[language=c++]{Strings/kmp.cpp}
+            \subsection{KMP (Eoin)}
+            \lstinputlisting[language=c++]{Strings/KMPEOIN.cpp}
+        \section{Rabin Karp}
+        \lstinputlisting[language=c++]{Strings/rabinkarp.cpp}
+        \section{Suffix Array}
+        \lstinputlisting[language=c++]{Strings/SuffixArray.cpp}
+        \section[Manacher's Algorithm]{Manacher's algorithm for longest palindromic substring}
+        \lstinputlisting[language=c++]{Strings/manacher.cpp}
+        \section{Z function}
+        \lstinputlisting[language=c++]{Strings/z.cpp}
+        \section{Hash}
+        \lstinputlisting[language=c++]{Strings/hash.cpp}
+
+    \chapter*{Geometry}
+        \addcontentsline{toc}{chapter}{Geometry}
+        \section{Convex Hull}
+            \subsection{Convex Hull}
+            \lstinputlisting[language=c++]{Geometry/convex_hull.cpp}
+            \subsection{Convex Hull (Eoin)}
+            \lstinputlisting[language=c++]{Geometry/Convex_HullEOIN.cpp}
+        \section{Geometry Functions}
+            \lstinputlisting[language=c++]{Geometry/Geometry.cpp}
+            \lstinputlisting[language=c++]{Geometry/functions.cpp}
+
+
+    \chapter*{Math}
+        \addcontentsline{toc}{chapter}{Math}
+        \section{Ternary Search}
+        \lstinputlisting[language=c++]{Algorithms/ternarysearch.cpp}
+        \section{Miller Rabin primality test}
+        \lstinputlisting[language=c++]{Math/Miller_Rabin.cpp}
+        \section{Fast fourier transform}
+        \lstinputlisting[language=c++]{Math/fft.cpp}
+        \section{Matrix Exponentiation}
+        \lstinputlisting[language=c++]{Algorithms/matrixpower.cpp}
+        \section{Math Tricks}
+        \lstinputlisting[language=c++]{Math/tricks.cpp}
+        \section{Theorems}
+        \lstinputlisting[]{Math/math.txt}
+
+
+\end{document}
